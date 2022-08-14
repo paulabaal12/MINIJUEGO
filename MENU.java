@@ -8,7 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MENU extends World
 {
-
+    Hojita hojita = new Hojita();
+    private int opcion = 0;
     /**
      * Constructor for objects of class MENU.
      * 
@@ -26,26 +27,33 @@ public class MENU extends World
      */
     private void prepare()
     {
-        Salida salida = new Salida();
-        addObject(salida,293,267);
-        Inicio inicio = new Inicio();
-        addObject(inicio,292,200);
-        inicio.setLocation(239,238);
-        salida.setLocation(372,246);
-        inicio.setLocation(300,208);
-        salida.setLocation(319,279);
-        salida.setLocation(304,274);
-        salida.setLocation(333,287);
-        salida.setLocation(316,274);
-        inicio.setLocation(332,204);
-        inicio.setLocation(287,209);
-        inicio.setLocation(296,209);
-        inicio.setLocation(284,200);
-        inicio.setLocation(329,220);
-        inicio.setLocation(304,220);
-        inicio.setLocation(330,204);
-        salida.setLocation(329,280);
-        Hojita hojita = new Hojita();
-        addObject(hojita,228,199);
+        //Salida salida = new Salida();
+        addObject(new Salida(),329,280);
+        //Inicio inicio = new Inicio();
+        addObject(new Inicio(),330,204);
+        //Hojita hojita = new Hojita();
+        addObject(new Hojita(),228,199);
+
+    }
+
+    public void act(){
+        if((Greenfoot.isKeyDown("UP")) && opcion!=0){opcion++;}
+        if(Greenfoot.isKeyDown("DOWN") && opcion!=1){opcion--;}
+        
+        if(opcion >= 2) opcion=0;
+        if(opcion<0)opcion=1;
+        
+        hojita.setLocation(228, 199 + (opcion*500));
+        //mover la hoja
+        if(Greenfoot.isKeyDown("SPACE")||Greenfoot.isKeyDown("ENTER")){
+            switch(opcion){
+            case 0:
+                Greenfoot.setWorld(new Explicacion());
+            case 1:
+                Greenfoot.stop();
+                break;
+            }
+        }
     }
 }
+

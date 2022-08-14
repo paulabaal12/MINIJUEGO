@@ -16,4 +16,11 @@ public class Hojita extends Actor
     {
         // Add your action code here.
     }
+    public Hojita ()
+    {
+      GreenfootImage myImage = getImage(); 
+      int nueva_altura= (int)myImage.getHeight()/6;
+      int nuevo_ancho= (int)myImage.getWidth()/6; 
+      myImage.scale(nuevo_ancho, nueva_altura);
+    }
 }
