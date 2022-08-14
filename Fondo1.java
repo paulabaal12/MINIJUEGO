@@ -8,7 +8,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Fondo1 extends World
 {
-
     /**
      * Constructor for objects of class Fondo1.
      * 
@@ -123,5 +122,15 @@ public class Fondo1 extends World
         elote15.setLocation(452,257);
         buho buho = new buho();
         addObject(buho,73,122);
+        
     }
+    public void act(){
+        if(Greenfoot.isKeyDown("SPACE")||Greenfoot.isKeyDown("ENTER")){
+            Greenfoot.delay(10);       
+            Greenfoot.setWorld(new Fondo2());
+
+            }
+        }
+
 }
+
